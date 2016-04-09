@@ -18,7 +18,7 @@ class Db_mysql():
         try:
             cur = conn.cursor()
 
-            result = {}
+            result = []
             # Use all the SQL you like
             cur.execute("select tra_id, tra_origin, tra_destination, tra_num_days, tra_budget_min, "
                         "tra_budget_max, tra_date, tra_lat, tra_long,"
@@ -55,7 +55,7 @@ class Db_mysql():
         try:
             cur = conn.cursor()
 
-            result = {}
+            result = []
             # Use all the SQL you like
             cur.execute("select tra_id, tra_origin, tra_destination, tra_num_days, tra_budget_min, "
                         "tra_budget_max, tra_date, tra_lat, tra_long,"
@@ -65,7 +65,7 @@ class Db_mysql():
 
             # print all the first cell of all the rows
             for row in cur.fetchall():
-                result[row[0]] = {
+                result.append({
                     'tra_id': row[0],
                     'tra_origin': row[1],
                     'tra_destination': row[2],
@@ -80,29 +80,32 @@ class Db_mysql():
                     'tra_persons_max': row[11],
                     'tra_description': row[12],
                     'tra_usr_id': row[13]
-                }
+                })
             self.close(conn)
             return result
         except Exception, e:
             raise e
 
-    def search(self, conn, destination):
+    def search(self, conn, text):
         # you must create a Cursor object. It will let
         #  you execute all the queries you need
         try:
             cur = conn.cursor()
 
-            result = {}
+            result = []
             # Use all the SQL you like
             cur.execute("select tra_id, tra_origin, tra_destination, tra_num_days, tra_budget_min, "
                         "tra_budget_max, tra_date, tra_lat, tra_long,"
                         "tra_planning_limit, tra_persons_min, "
                         "tra_persons_max, tra_description, tra_usr_id "
-                        "from Travel t where lower(tra_destination) like lower('%"+destination+"%')")
+                        "from Travel t "
+                        "where lower(tra_destination) like lower('%"+text+"%') "
+                        "or lower(tra_origin) like lower('%"+text+"%') "
+                        "or lower(tra_description) like lower('%"+text+"%')")
 
             # print all the first cell of all the rows
             for row in cur.fetchall():
-                result[row[0]] = {
+                result.append({
                     'tra_id': row[0],
                     'tra_origin': row[1],
                     'tra_destination': row[2],
@@ -117,7 +120,7 @@ class Db_mysql():
                     'tra_persons_max': row[11],
                     'tra_description': row[12],
                     'tra_usr_id': row[13]
-                }
+                })
             self.close(conn)
             return result
         except Exception, e:
@@ -129,7 +132,7 @@ class Db_mysql():
         try:
             cur = conn.cursor()
 
-            result = {}
+            result = []
             # Use all the SQL you like
             cur.execute("select tra_id, tra_origin, tra_destination, tra_num_days, tra_budget_min, "
                         "tra_budget_max, tra_date, tra_lat, tra_long,"
@@ -139,7 +142,7 @@ class Db_mysql():
 
             # print all the first cell of all the rows
             for row in cur.fetchall():
-                result[row[0]] = {
+                result.append({
                     'tra_id': row[0],
                     'tra_origin': row[1],
                     'tra_destination': row[2],
@@ -154,7 +157,7 @@ class Db_mysql():
                     'tra_persons_max': row[11],
                     'tra_description': row[12],
                     'tra_usr_id': row[13]
-                }
+                })
             self.close(conn)
             return result
         except Exception, e:
