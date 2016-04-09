@@ -8,7 +8,7 @@
  * Controller of the searchEngineApp
  */
 angular.module('searchEngineApp')
-    .controller('MainCtrl', function ($rootScope, $scope, Restangular, $q, $log, Travel, $location, travelsList) {
+    .controller('MainCtrl', function ($rootScope, $scope, $window, $q, $log, Travel, $location, travelsList) {
     
     this.travelsList = travelsList;
     var userId = _.get($location.search(), 'user_id');
@@ -44,7 +44,9 @@ angular.module('searchEngineApp')
       $log.info('Text changed to ' + text);
     }
     function selectedItemChange(item) {
-      $log.info('Item changed to ' + JSON.stringify(item));
+        $log.info('Item changed to ' + JSON.stringify(item));
+        // change the path
+        $window.location.href  = ('http://travel.trabel.me/#/travels/'+ item.tra_id + $scope.userId);
     }
     /**
      * Build `states` list of key/value pairs
