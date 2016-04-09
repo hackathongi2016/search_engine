@@ -81,3 +81,9 @@ body {
     border-bottom: 0;
   }
 }
+
+.add-button {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+}
