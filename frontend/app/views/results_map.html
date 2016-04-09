@@ -1,10 +1,9 @@
 <div ng-controller="ResultsMapCtrl">
     <ng-map zoom="8" center="[40.74, -74.18]">
-        <custom-marker position="[{{p[0]}}, {{p[1]}}]" ng-repeat="p in positions">
-            <div class="cm">
-                position:<br>
-                {{p[0]}}<br>
-                {{p[1]}}
+        <custom-marker position="[{{travel.tra_lat}}, {{travel.tra_long}}]" ng-repeat="travel in SearchResultsCtrl.travelsList">
+            <div class="cm"
+                 uib-popover-template="'views/map_popover.html'"
+                 popover-title="{{travel.tra_origin}} - {{travel.tra_destination}}&nbsp;&nbsp;&nbsp;{{travel.tra_date}} - {{ travel.tra_num_days }} dies">
             </div>
         </custom-marker>
     </ng-map>

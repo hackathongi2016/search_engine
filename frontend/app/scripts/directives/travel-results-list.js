@@ -9,14 +9,14 @@
 angular.module('searchEngineApp')
     .directive('travelResultsList', function () {
         return {
-            templateUrl : 'views/simple_result.html',
+            templateUrl : '/scripts/directives/simple_result.html',
             restrict    : 'E',
             link        : function postLink(scope, element, attrs) {
 
             },
             controller  : function ($scope) {
-                $scope.calculateNumDays = function(travel){
-                    return moment(travel.tra_date).add(travel.tra_num_days, 'd').format('YYYY-MM-DD');
+                $scope.getLimitDays = function(travel){
+                    return moment(travel.tra_planning_limit).diff(moment(),'d');
                 };
             }
         };

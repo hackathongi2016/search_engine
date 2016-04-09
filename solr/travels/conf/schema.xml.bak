@@ -30,11 +30,31 @@
 -->
 
 <schema name="example" version="1.6">
+  <!-- Our Trabel me fields (indexed) -->
   <field name="tra_origin" type="text_general" indexed="true" stored="true"/>
   <field name="tra_destination" type="text_general" indexed="true" stored="true"/>
+  <field name="tra_lat" type="tfloat" indexed="true" stored="true"/>
+  <field name="tra_long" type="tfloat" indexed="true" stored="true"/>
   <field name="tra_description" type="text_general" indexed="true" stored="true"/>
 
+  <!-- Our Trabel me fields (non indexed) -->
+  <field name="tra_num_days" type="tint" indexed="false" stored="true"/>
+  <field name="tra_budget_max" type="tfloat" indexed="false" stored="true"/>
+  <field name="tra_budget_min" type="tfloat" indexed="false" stored="true"/>
+  <field name="tra_date" type="tdate" indexed="false" stored="true"/>
+  <field name="tra_planning_limit" type="tdate" indexed="false" stored="true"/>
+  <field name="tra_persons_min" type="tint" indexed="false" stored="true"/>
+  <field name="tra_persons_max" type="tint" indexed="false" stored="true"/>
+  <field name="tra_usr_id" type="tint" indexed="false" stored="true"/>
 
+  <!-- Our Trabel me fields (default search) -->
+<!--  WIP
+  <defaultSearchField>collector</defaultSearchField>
+  <field name="collector" type="text_general" indexed="true" stored="false" multiValued="true" />
+  <copyField source="tra_origin" dest="collector" />
+  <copyField source="tra_destination" dest="collector" />
+  <copyField source="tra_description" dest="collector" />
+-->
 
   <!-- attribute "name" is the name of this schema and is only used for display purposes.
        version="x.y" is Solr's version number for the schema syntax and

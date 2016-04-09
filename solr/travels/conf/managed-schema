@@ -122,9 +122,19 @@
   <field name="_root_" type="string" docValues="false" indexed="true" stored="false"/>
   <field name="_version_" type="long" indexed="true" stored="false"/>
   <field name="id" type="string" multiValued="false" indexed="true" required="true" stored="true"/>
+  <field name="tra_budget_max" type="tfloat" indexed="false" stored="true"/>
+  <field name="tra_budget_min" type="tfloat" indexed="false" stored="true"/>
+  <field name="tra_date" type="tdate" indexed="false" stored="true"/>
   <field name="tra_description" type="text_general" indexed="true" stored="true"/>
   <field name="tra_destination" type="text_general" indexed="true" stored="true"/>
+  <field name="tra_lat" type="tfloat" indexed="true" stored="true"/>
+  <field name="tra_long" type="tfloat" indexed="true" stored="true"/>
+  <field name="tra_num_days" type="tint" indexed="false" stored="true"/>
   <field name="tra_origin" type="text_general" indexed="true" stored="true"/>
+  <field name="tra_persons_max" type="tint" indexed="false" stored="true"/>
+  <field name="tra_persons_min" type="tint" indexed="false" stored="true"/>
+  <field name="tra_planning_limit" type="tdate" indexed="false" stored="true"/>
+  <field name="tra_usr_id" type="tint" indexed="false" stored="true"/>
   <dynamicField name="*_coordinate" type="tdouble" indexed="true" stored="false" useDocValuesAsStored="false"/>
   <dynamicField name="ignored_*" type="ignored" multiValued="true"/>
   <dynamicField name="random_*" type="random"/>
