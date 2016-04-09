@@ -13,7 +13,7 @@ angular
         'ui.router',
         'ngMaterial'
     ])
-    .config(['$stateProvider', '$urlRouterProvider', '$locationProvider', function ($stateProvider, $urlRouterProvider, $locationProvider) {
+    .config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
 
         $urlRouterProvider.otherwise('/travels');
 
@@ -87,6 +87,4 @@ angular
                     }
                 }
             });
-
-        $locationProvider.html5Mode(true);
     }]);
