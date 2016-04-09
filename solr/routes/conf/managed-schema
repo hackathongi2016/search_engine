@@ -122,6 +122,7 @@
   <field name="_root_" type="string" docValues="false" indexed="true" stored="false"/>
   <field name="_version_" type="long" indexed="true" stored="false"/>
   <field name="id" type="string" multiValued="false" indexed="true" required="true" stored="true"/>
+  <field name="rut_name" type="text_general" indexed="true" stored="true"/>
   <dynamicField name="*_coordinate" type="tdouble" indexed="true" stored="false" useDocValuesAsStored="false"/>
   <dynamicField name="ignored_*" type="ignored" multiValued="true"/>
   <dynamicField name="random_*" type="random"/>
