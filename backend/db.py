@@ -6,7 +6,7 @@ class Db_mysql():
     def connect(self):
         db = MySQLdb.connect(host="localhost",    # your host, usually localhost
                              user="root",         # your username
-                             passwd="321289",  # your password
+                             passwd="hackaton",  # your password
                              db="viatgemjunts")        # name of the data base
         return db
 
