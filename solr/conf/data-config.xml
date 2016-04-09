@@ -1,0 +1,12 @@
+<dataConfig>
+  <dataSource type="JdbcDataSource" 
+              driver="com.mysql.jdbc.Driver"
+              url="jdbc:mysql://localhost/viatgemjunts" 
+              user="jordi" 
+              password="jordi"/>
+  <document>
+    <entity name="travels" 
+            query="select tra_destination from Travel">
+    </entity>
+  </document>
+</dataConfig>
