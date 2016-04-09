@@ -1,3 +1,11 @@
 <div ng-controller="ResultsMapCtrl">
-    Results Map
+    <ng-map zoom="8" center="[40.74, -74.18]">
+        <custom-marker position="[{{p[0]}}, {{p[1]}}]" ng-repeat="p in positions">
+            <div class="cm">
+                position:<br>
+                {{p[0]}}<br>
+                {{p[1]}}
+            </div>
+        </custom-marker>
+    </ng-map>
 </div>

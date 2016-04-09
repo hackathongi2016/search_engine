@@ -1,74 +1,81 @@
 <!doctype html>
 <html>
-  <head>
+<head>
     <meta charset="utf-8">
     <title></title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
-      <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css"/>
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
-    <link rel="stylesheet" href="bower_components/angular-material/angular-material.css" />
+    <link rel="stylesheet" href="bower_components/angular-material/angular-material.css"/>
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
-  </head>
-  <body ng-app="searchEngineApp">
-    <!--[if lte IE 8]>
-      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-    <![endif]-->
+</head>
+<body ng-app="searchEngineApp">
+<!--[if lte IE 8]>
+<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+    your browser</a> to improve your experience.</p>
+<![endif]-->
 
-    <nav class="navbar navbar-default">
-        <div class="container-fluid">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
 
-                <a class="navbar-brand" href="http://www.trabel.me">Trabel.me</a>
-            </div>
-
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="http://auth.trabel.me/login.php">Login</a></li>
-            </ul>
+            <a class="navbar-brand" href="http://www.trabel.me">Trabel.me</a>
         </div>
-    </nav>
 
-    <div class="container">
-      <div ui-view="search"></div>
-      <div ui-view="results"></div>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="http://auth.trabel.me/login">Login</a></li>
+        </ul>
     </div>
+</nav>
 
-    <md-button class="md-fab add-button" aria-label="Crear" ng-href="http://travel.trabel.me/#/travels/new{{userId}}">
-        <div class="glyphicon glyphicon-plus"></div>
-    </md-button>
+<div class="container">
+    <div ui-view="search"></div>
+    <div ui-view="results"></div>
+</div>
 
-    <!-- build:js(.) scripts/vendor.js -->
-    <!-- bower:js -->
-    <script src="bower_components/jquery/dist/jquery.js"></script>
-    <script src="bower_components/angular/angular.js"></script>
-    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
-    <script src="bower_components/lodash/lodash.js"></script>
-    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
-    <script src="bower_components/angular-animate/angular-animate.js"></script>
-    <script src="bower_components/angular-aria/angular-aria.js"></script>
-    <script src="bower_components/angular-messages/angular-messages.js"></script>
-    <script src="bower_components/angular-material/angular-material.js"></script>
-    <script src="bower_components/restangular/dist/restangular.js"></script>
-    <script src="bower_components/moment/moment.js"></script>
-    <!-- endbower -->
-    <!-- endbuild -->
+<md-button class="md-fab add-button" aria-label="Crear" ng-href="http://travel.trabel.me/#/travels/new{{userId}}">
+    <div class="glyphicon glyphicon-plus"></div>
+</md-button>
 
-        <!-- build:js({.tmp,app}) scripts/scripts.js -->
-        <script src="scripts/app.js"></script>
-        <script src="scripts/controllers/main.js"></script>
-        <script src="scripts/controllers/resultslist.js"></script>
-        <script src="scripts/controllers/resultsmap.js"></script>
-        <script src="scripts/controllers/searchresults.js"></script>
-        <script src="scripts/models/travel.js"></script>
-        <script src="scripts/directives/travel-search-item.js"></script>
-        <script src="scripts/directives/travel-results-list.js"></script>
-        <!-- endbuild -->
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBUtl-m6uXzToTKwznvxJnY8QLLB2nrMW8">
+</script>
+
+<script src="bower_components/ngmap/spec/lib/markerclusterer.js"></script>
+<!-- build:js(.) scripts/vendor.js -->
+<!-- bower:js -->
+<script src="bower_components/jquery/dist/jquery.js"></script>
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+<script src="bower_components/lodash/lodash.js"></script>
+<script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+<script src="bower_components/angular-animate/angular-animate.js"></script>
+<script src="bower_components/angular-aria/angular-aria.js"></script>
+<script src="bower_components/angular-messages/angular-messages.js"></script>
+<script src="bower_components/angular-material/angular-material.js"></script>
+<script src="bower_components/restangular/dist/restangular.js"></script>
+<script src="bower_components/moment/moment.js"></script>
+<script src="bower_components/ngmap/build/scripts/ng-map.js"></script>
+<!-- endbower -->
+<!-- endbuild -->
+
+<!-- build:js({.tmp,app}) scripts/scripts.js -->
+<script src="scripts/app.js"></script>
+<script src="scripts/controllers/main.js"></script>
+<script src="scripts/controllers/resultslist.js"></script>
+<script src="scripts/controllers/resultsmap.js"></script>
+<script src="scripts/controllers/searchresults.js"></script>
+<script src="scripts/models/travel.js"></script>
+<script src="scripts/directives/travel-search-item.js"></script>
+<script src="scripts/directives/travel-results-list.js"></script>
+<!-- endbuild -->
 </body>
 </html>

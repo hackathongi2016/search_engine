@@ -12,7 +12,8 @@ angular
     .module('searchEngineApp', [
         'ui.router',
         'ngMaterial',
-        'restangular'
+        'restangular',
+        'ngMap'
     ])
     .config(['$stateProvider', '$urlRouterProvider', 'RestangularProvider', function ($stateProvider, $urlRouterProvider, RestangularProvider) {
 
