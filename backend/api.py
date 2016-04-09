@@ -6,7 +6,7 @@ app = Flask(__name__)
 api = Api(app)
 
 
-class Travels(Resource):
+class TravelsUser(Resource):
     db = None
     conn = None
 
@@ -18,11 +18,26 @@ class Travels(Resource):
         try:
             user_travels = self.db.get_user_travels(self.conn, user_id)
             return user_travels
-            # return {'user_id': user_id}
         except Exception, e:
             print e
 
-api.add_resource(Travels, '/travels/my/<int:user_id>')
+class Travels(Resource):
+        db = None
+        conn = None
+
+        def __init__(self):
+            self.db = Db_mysql()
+            self.conn = self.db.connect()
+
+        def get(self, text):
+            try:
+                search = self.db.search(self.conn, text)
+                return search
+            except Exception, e:
+                print e
+
+api.add_resource(TravelsUser, '/travels/user/<int:user_id>')
+api.add_resource(Travels, '/travels/search/<string:text>')
 
 if __name__ == '__main__':
     app.run(debug=True)
