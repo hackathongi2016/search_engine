@@ -1,3 +1,37 @@
 <div>
-    <md-button ng-href="http://travel.trabel.me/#/travels/{{travel.tra_id}}{{userId}}">Detall</md-button>
+    <md-card-title>
+        <md-card-title-text>
+        <span class="md-subhead">
+            <div>{{travel.tra_description}}</div>
+            <br/>
+            <div class="text-center ">{{getLimitDays(travel)}} dies per tancar</div>
+            <br/>
+            <div class="row">
+                <span class="col-xs-6 text-center">
+                    <img class="small" src="images/people.png" />
+                    <div>
+                        {{travel.tra_persons_min ? travel.tra_persons_min : '?'}}
+                        -
+                        {{travel.tra_persons_min ? travel.tra_persons_max : '?'}}
+                    </div>
+                </span>
+
+                <span class="col-xs-6 text-center">
+                    <img class="small" src="images/money.png" />
+                    <div>
+                        {{travel.tra_budget_min ? (travel.tra_budget_min | number : 2) + ' €' : '?'}}
+                        -
+                        {{travel.tra_budget_max ? (travel.tra_budget_max | number : 2) + ' €' : '?'}}
+                    </div>
+                </span>
+            </div>
+            <div class="text-center">
+                <md-button class="md-accent md-raised md-hue-1"
+                           ng-href="http://travel.trabel.me/#/travels/{{travel.tra_id}}{{userId}}">
+                    Detall
+                </md-button>
+            </div>
+        </span>
+        </md-card-title-text>
+    </md-card-title>
 </div>

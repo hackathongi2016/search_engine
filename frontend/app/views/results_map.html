@@ -3,7 +3,7 @@
         <custom-marker position="[{{travel.tra_lat}}, {{travel.tra_long}}]" ng-repeat="travel in SearchResultsCtrl.travelsList">
             <div class="cm"
                  uib-popover-template="'views/map_popover.html'"
-                 popover-title="{{travel.tra_origin}} - {{travel.tra_destination}}">
+                 popover-title="{{travel.tra_origin}} - {{travel.tra_destination}}&nbsp;&nbsp;&nbsp;{{travel.tra_date}} - {{ travel.tra_num_days }} dies">
             </div>
         </custom-marker>
     </ng-map>

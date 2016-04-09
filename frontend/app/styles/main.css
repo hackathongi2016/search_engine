@@ -103,3 +103,7 @@ body {
     margin-left: auto;
     margin-right: auto;
 }
+
+.popover {
+    width: 400px;
+}
