@@ -8,10 +8,10 @@
  * Controller of the searchEngineApp
  */
 angular.module('searchEngineApp')
-  .controller('ResultsListCtrl', function () {
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-  });
+    .controller('ResultsListCtrl', function ($scope) {
+        $scope.urls = {
+            new    : '/travels/new?user_id=1',
+            detail : '/travels/1?user_id=1',
+            login  : '/login'
+        };
+    });
