@@ -8,13 +8,12 @@
  * Controller of the searchEngineApp
  */
 angular.module('searchEngineApp')
-  .controller('MainCtrl', function ($scope, $timeout, $q, $log, $location, travelsList) {
-
+    .controller('MainCtrl', function ($rootScope, $scope, $timeout, $q, $log, Travel, $location, travelsList) {
 
 	this.travelsList = travelsList;
-        console.log($location);
-        /*
-    
+    var userId = _.get($location.search(), 'user_id');
+    $rootScope.userId = userId ? '?user_id=' + parseInt(userId) : '';
+
     var self = this;
     $scope.ctrl = self;
     self.simulateQuery = false;
@@ -25,6 +24,7 @@ angular.module('searchEngineApp')
     self.selectedItemChange = selectedItemChange;
     self.searchTextChange   = searchTextChange;
     self.newState = newState;
+    
     function newState(state) {
       alert("Sorry! You'll need to create a Constituion for " + state + " first!");
     }
@@ -35,16 +35,10 @@ angular.module('searchEngineApp')
      * Search for states... use $timeout to simulate
      * remote dataservice call.
      */
-    function querySearch (query) {
-      var results = query ? self.states.filter( createFilterFor(query) ) : self.states,
-          deferred;
-      if (self.simulateQuery) {
-        deferred = $q.defer();
-        $timeout(function () { deferred.resolve( results ); }, Math.random() * 1000, false);
-        return deferred.promise;
-      } else {
-        return results;
-      }
+    function querySearch(query) {
+        return Travel.getList(query).then(function(travels){
+            return travels;
+        });
     }
     function searchTextChange(text) {
       $log.info('Text changed to ' + text);
@@ -56,19 +50,7 @@ angular.module('searchEngineApp')
      * Build `states` list of key/value pairs
      */
     function loadAll() {
-      var allStates = 'Alabama, Alaska, Arizona, Arkansas, California, Colorado, Connecticut, Delaware,\
-              Florida, Georgia, Hawaii, Idaho, Illinois, Indiana, Iowa, Kansas, Kentucky, Louisiana,\
-              Maine, Maryland, Massachusetts, Michigan, Minnesota, Mississippi, Missouri, Montana,\
-              Nebraska, Nevada, New Hampshire, New Jersey, New Mexico, New York, North Carolina,\
-              North Dakota, Ohio, Oklahoma, Oregon, Pennsylvania, Rhode Island, South Carolina,\
-              South Dakota, Tennessee, Texas, Utah, Vermont, Virginia, Washington, West Virginia,\
-              Wisconsin, Wyoming';
-      return allStates.split(/, +/g).map( function (state) {
-        return {
-          value: state.toLowerCase(),
-          display: state
-        };
-      });
+      return travelsList;
     }
     /**
      * Create filter function for a query string

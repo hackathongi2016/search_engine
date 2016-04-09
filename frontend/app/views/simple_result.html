@@ -1,0 +1,33 @@
+<div class="list-group-item-heading">
+    <h4 class="clearfix">
+        <span class="pull-left">{{travel.tra_origin}} a {{travel.tra_destination}}</span>
+        <span class="pull-right">{{travel.tra_date}} - {{ calculateNumDays(travel) }}</span>
+    </h4>
+    <p class="list-group-item-text">{{travel.tra_description}}</p>
+    <br/>
+    <div class="row">
+        <div ng-if="travel.tra_budget_min || travel.tra_budget_max" class="col-md-3">
+            <div>Pressupost</div>
+            <div ng-if="travel.tra_budget_min">
+                <span>Mínim:</span>&nbsp;{{travel.tra_budget_min}}&nbsp;€
+            </div>
+            <div ng-if="travel.tra_budget_max">
+                <span>Màxim:</span>&nbsp;{{travel.tra_budget_max}}&nbsp;€
+            </div>
+        </div>
+
+        <div ng-if="travel.tra_persons_min || travel.tra_persons_max" class="col-md-3">
+            <div>Acompanyants</div>
+            <div ng-if="travel.tra_persons_min">
+                <span>Mínim:</span>&nbsp;{{travel.tra_persons_min}}
+            </div>
+            <div ng-if="travel.tra_persons_max">
+                <span>Màxim:</span>&nbsp;{{travel.tra_persons_max}}
+            </div>
+        </div>
+
+        <div class="col-md-2 pull-right">
+            <md-button ng-href="http://travel.trabel.me/#/travels/{{travel.tra_id}}{{userId}}">Detall</md-button>
+        </div>
+    </div>
+</div>

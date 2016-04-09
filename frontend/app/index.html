@@ -21,10 +21,28 @@
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+
+                <a class="navbar-brand" href="http://www.trabel.me">Trabel.me</a>
+            </div>
+
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="http://auth.trabel.me/login.php">Login</a></li>
+            </ul>
+        </div>
+    </nav>
+
     <div class="container">
       <div ui-view="search"></div>
       <div ui-view="results"></div>
     </div>
+
+    <md-button class="md-fab add-button" aria-label="Crear" ng-href="http://travel.trabel.me/#/travels/new{{userId}}">
+        <div class="glyphicon glyphicon-plus"></div>
+    </md-button>
 
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
@@ -38,6 +56,7 @@
     <script src="bower_components/angular-messages/angular-messages.js"></script>
     <script src="bower_components/angular-material/angular-material.js"></script>
     <script src="bower_components/restangular/dist/restangular.js"></script>
+    <script src="bower_components/moment/moment.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -47,8 +66,9 @@
         <script src="scripts/controllers/resultslist.js"></script>
         <script src="scripts/controllers/resultsmap.js"></script>
         <script src="scripts/controllers/searchresults.js"></script>
-        <script src="scripts/services/travel.js"></script>
+        <script src="scripts/models/travel.js"></script>
         <script src="scripts/directives/travel-search-item.js"></script>
+        <script src="scripts/directives/travel-results-list.js"></script>
         <!-- endbuild -->
 </body>
 </html>
