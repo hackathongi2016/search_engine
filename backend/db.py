@@ -7,7 +7,9 @@ class Db_mysql():
         db = MySQLdb.connect(host="localhost",    # your host, usually localhost
                              user="root",         # your username
                              passwd="hackaton",  # your password
-                             db="viatgemjunts")        # name of the data base
+                             db="viatgemjunts",
+                             charset="utf8",
+                             use_unicode=True)        # name of the data base
         return db
 
     def get_user_travels(self, conn, user_id):
