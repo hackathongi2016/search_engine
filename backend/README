@@ -1,0 +1,3 @@
+Instalar flask-restful = pip install flask-restful
+
+Instalar python mysql = sudo apt-get install python-mysqldb
