@@ -10,25 +10,15 @@
 angular.module('searchEngineApp')
   .factory('Travel', function (Restangular, $timeout, $q) {
     
-    function Travel(){
+    function Travel(data){
         
-        this.setFields({
-            tra_id             : 3,
-            tra_origin         : 'Roma',
-            tra_destination    : 'París',
-            tra_num_days       : 15,
-            tra_budget_min     : 150.23,
-            tra_budget_max     : 200.50,
-            tra_date           : '2016-05-18',
-            tra_lat            : 2.234,
-            tra_long           : 1.123,
-            tra_planning_limit : '2016-05-03',
-            tra_persons_min    : 2,
-            tra_persons_max    : 4,
-            tra_description    : 'descripció roma a parís',
-            tra_usr_id         : 1
-        }); 
-        Restangular.restangularizeElement(this);
+        // defaults
+        this.setFields({});
+        
+        if(data){
+            this.setFields(data);            
+        }
+        Restangular.restangularizeElement(this, "travels");
     }
     
     Travel.prototype = {
@@ -49,9 +39,10 @@ angular.module('searchEngineApp')
             'tra_description', 
             'tra_usr_id'],
         setFields: function(data){
+            var self = this;
             this.attributes.forEach(function(attr){
-                if(data !== undefined){
-                    this[attr] = data[attr]
+                if(data[attr] !== undefined){
+                    self[attr] = data[attr];
                 }
             });
         }
@@ -59,7 +50,7 @@ angular.module('searchEngineApp')
     
     Travel.getList = function(){
         //return Restangular.all("travels")
-        var tmpTravels = [
+        var tmpData = [
             {
                 tra_id             : 1,
                 tra_origin         : 'Lyon',
@@ -109,6 +100,9 @@ angular.module('searchEngineApp')
                 tra_usr_id         : 1
             }
         ];
+        var tmpTravels = tmpData.map(function(travel){
+           return new Travel(travel);
+        });
         var deferred = $q.defer();
         $timeout(function () { deferred.resolve( tmpTravels ); }, Math.random() * 1000, false);
         return deferred.promise;
