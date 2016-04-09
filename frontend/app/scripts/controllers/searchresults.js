@@ -10,7 +10,9 @@
 angular.module('searchEngineApp')
     .controller('SearchResultsCtrl', function ($scope, $location, travelsList) {
 
-        $scope.userId = parseInt(_.get($location.search(), 'user_id'));
+        var userId = _.get($location.search(), 'user_id');
+
+        $scope.userId = userId ? '?user_id=' + parseInt(userId) : '';
 
         this.travelsList = travelsList;
         this.urls = {
