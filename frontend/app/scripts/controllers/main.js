@@ -8,13 +8,13 @@
  * Controller of the searchEngineApp
  */
 angular.module('searchEngineApp')
-  .controller('MainCtrl', function () {
+  .controller('MainCtrl', function ($timeout, $q, $log) {
     this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
       'Karma'
     ];
-    
+    /*
     var self = this;
     self.simulateQuery = false;
     self.isDisabled    = false;
@@ -33,7 +33,7 @@ angular.module('searchEngineApp')
     /**
      * Search for states... use $timeout to simulate
      * remote dataservice call.
-     */
+     *
     function querySearch (query) {
       var results = query ? self.states.filter( createFilterFor(query) ) : self.states,
           deferred;
@@ -53,7 +53,7 @@ angular.module('searchEngineApp')
     }
     /**
      * Build `states` list of key/value pairs
-     */
+     *
     function loadAll() {
       var allStates = 'Alabama, Alaska, Arizona, Arkansas, California, Colorado, Connecticut, Delaware,\
               Florida, Georgia, Hawaii, Idaho, Illinois, Indiana, Iowa, Kansas, Kentucky, Louisiana,\
@@ -71,12 +71,12 @@ angular.module('searchEngineApp')
     }
     /**
      * Create filter function for a query string
-     */
+     *
     function createFilterFor(query) {
       var lowercaseQuery = angular.lowercase(query);
       return function filterFn(state) {
         return (state.value.indexOf(lowercaseQuery) === 0);
       };
     }
-    
+    */
   });

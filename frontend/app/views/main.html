@@ -1,5 +1,5 @@
 <input type="text" />
-
+<!--
  <md-content class="md-padding">
     <form ng-submit="$event.preventDefault()">
       <md-autocomplete
@@ -14,7 +14,7 @@
           md-min-length="0"
           placeholder="What is your favorite US state?">
         <md-item-template>
-          <span md-highlight-text="ctrl.searchText" md-highlight-flags="^i">{{item.display}}</span>
+            <travel-search-item></travel-search-item>          
         </md-item-template>
         <md-not-found>
           No states matching "{{ctrl.searchText}}" were found.
@@ -27,3 +27,4 @@
       <md-checkbox ng-model="ctrl.isDisabled">Disable the input?</md-checkbox>      
     </form>
   </md-content>
+-->
