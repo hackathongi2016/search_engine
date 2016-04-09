@@ -1,4 +1,6 @@
 .idea
 frontend/bower_components
-solr/data
 nbproject
+solr_old/data
+solr/routes/data
+solr/travels/data
