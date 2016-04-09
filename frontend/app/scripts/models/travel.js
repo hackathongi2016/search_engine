@@ -59,6 +59,15 @@ angular.module('searchEngineApp')
             });
         });
     }
+    
+    Travel.getUserList = function(user_id){
+       
+        return Restangular.one("travels").one("user", user_id).getList().then(function(data){
+            return data.map(function(travel){
+                return new Travel(travel);
+            });
+        });
+    }
 
     return Travel;
 
