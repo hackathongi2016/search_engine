@@ -13,7 +13,7 @@ angular.module('searchEngineApp')
             highlight: "=",
             item: "="
       },
-      template: '<div><span md-highlight-text="highlight" md-highlight-flags="^i">{{item.display}}</span></div>',
+      templateUrl: '/scripts/directives/travel-search-item.html',
       restrict: 'E',
       link: function postLink(scope, element, attrs) {
         //element.text('this is the travelSearchItem directive');

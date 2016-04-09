@@ -11,7 +11,8 @@
 angular
     .module('searchEngineApp', [
         'ui.router',
-        'ngMaterial'
+        'ngMaterial',
+        'restangular'
     ])
     .config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
 
