@@ -18,7 +18,10 @@ class TravelsUser(Resource):
     def get(self, user_id):
         try:
             user_travels = self.db.get_user_travels(self.conn, user_id)
-            return user_travels, 201, {'Access-Control-Allow-Origin': '*'}
+            if user_travels:
+                return [user_travels], 201, {'Access-Control-Allow-Origin': '*'}
+            else:
+                return [], 201, {'Access-Control-Allow-Origin': '*'}
         except Exception, e:
             print e
 
@@ -33,7 +36,10 @@ class Travels(Resource):
         def get(self, text):
             try:
                 search = self.db.search(self.conn, text)
-                return search, 201, {'Access-Control-Allow-Origin': '*'}
+                if search:
+                    return [search], 201, {'Access-Control-Allow-Origin': '*'}
+                else:
+                    return [], 201, {'Access-Control-Allow-Origin': '*'}
             except Exception, e:
                 print e
 
@@ -49,7 +55,10 @@ class TravelsAll(Resource):
     def get(self):
         try:
             search = self.db.search_all(self.conn)
-            return search, 201, {'Access-Control-Allow-Origin': '*'}
+            if search:
+                return [search], 201, {'Access-Control-Allow-Origin': '*'}
+            else:
+                return [], 201, {'Access-Control-Allow-Origin': '*'}
         except Exception, e:
             print e
 
