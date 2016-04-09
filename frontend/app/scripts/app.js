@@ -73,7 +73,7 @@ angular
                         ];
                     }
                 },
-                url     : '/travels',
+                url     : '/travels?param1',
 
                 views : {
                     'search'  : {
