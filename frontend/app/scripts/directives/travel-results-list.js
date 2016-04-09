@@ -9,7 +9,7 @@
 angular.module('searchEngineApp')
     .directive('travelResultsList', function () {
         return {
-            templateUrl : 'views/simple_result.html',
+            templateUrl : '/scripts/directives/simple_result.html',
             restrict    : 'E',
             link        : function postLink(scope, element, attrs) {
 

@@ -22,7 +22,7 @@ angular
         RestangularProvider.setBaseUrl('http://search.trabel.me:5000');
         RestangularProvider.setJsonp(true);
         //RestangularProvider.setDefaultRequestParams('jsonp', {callback: 'JSON_CALLBACK'});
-        
+
         $urlRouterProvider.otherwise('/travels');
 
         $stateProvider
