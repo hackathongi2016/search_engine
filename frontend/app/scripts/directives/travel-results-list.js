@@ -15,8 +15,8 @@ angular.module('searchEngineApp')
 
             },
             controller  : function ($scope) {
-                $scope.calculateNumDays = function(travel){
-                    return moment(travel.tra_date).add(travel.tra_num_days, 'd').format('YYYY-MM-DD');
+                $scope.getLimitDays = function(travel){
+                    return moment(travel.tra_planning_limit).diff(moment(),'d');
                 };
             }
         };

@@ -9,18 +9,18 @@
  */
 angular.module('searchEngineApp')
   .factory('Travel', function (Restangular, $timeout, $q) {
-    
+
     function Travel(data){
-        
+
         // defaults
         this.setFields({});
-        
+
         if(data){
-            this.setFields(data);            
+            this.setFields(data);
         }
         Restangular.restangularizeElement(this, "travels");
     }
-    
+
     Travel.prototype = {
         attributes: [
             'tra_id',
@@ -33,10 +33,10 @@ angular.module('searchEngineApp')
             'tra_long',
             'tra_budget_max',
             'tra_budget_min',
-            'tra_planning_limit', 
-            'tra_persons_min', 
-            'tra_persons_max', 
-            'tra_description', 
+            'tra_planning_limit',
+            'tra_persons_min',
+            'tra_persons_max',
+            'tra_description',
             'tra_usr_id'],
         setFields: function(data){
             var self = this;
@@ -47,7 +47,7 @@ angular.module('searchEngineApp')
             });
         }
     }
-    
+
     Travel.getList = function(query){
         if(!query || query.length == 0){
             query = "*";
@@ -62,7 +62,7 @@ angular.module('searchEngineApp')
             });
         });
     }
-      
+
     return Travel;
-      
+
   });

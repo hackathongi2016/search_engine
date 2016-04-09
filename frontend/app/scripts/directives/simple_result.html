@@ -5,34 +5,33 @@
             <span class="pull-left">{{travel.tra_origin}} - {{travel.tra_destination}}</span>
             <span class="pull-right">{{travel.tra_date}} - {{ travel.tra_num_days }} dies</span>
         </span>
-        <span class="md-subhead">{{travel.tra_description}}</span>
+        <span class="md-subhead">
+            <div>{{travel.tra_description}}</div>
+            <br/>
+            <div class="row">
+                <span class="col-xs-3">{{getLimitDays(travel)}} dies per tancar</span>
 
-        <br/>
-        <div flex-xs flex-gt-xs="50" layout="olumn">
+                <span class="col-xs-3 text-center">
+                    <img class="small" src="images/people.png" />
+                    {{travel.tra_persons_min ? travel.tra_persons_min : '?'}}
+                    -
+                    {{travel.tra_persons_min ? travel.tra_persons_max : '?'}}
+                </span>
 
-            <div ng-if="travel.tra_budget_min || travel.tra_budget_max" class="col-md-3">
-                <div>Pressupost</div>
-                <div ng-if="travel.tra_budget_min">
-                    <span>Mínim:</span>&nbsp;{{travel.tra_budget_min}}&nbsp;€
-                </div>
-                <div ng-if="travel.tra_budget_max">
-                    <span>Màxim:</span>&nbsp;{{travel.tra_budget_max}}&nbsp;€
+                <span class="col-xs-3 text-center">
+                    <img class="small" src="images/money.png" />
+                    {{travel.tra_budget_min ? (travel.tra_budget_min | number : 2) + ' €' : '?'}}
+                    -
+                    {{travel.tra_budget_max ? (travel.tra_budget_max | number : 2) + ' €' : '?'}}
+                </span>
+
+                <div class="col-xs-3">
+                    <md-button class="md-accent md-raised md-hue-1"
+                               ng-href="http://travel.trabel.me/#/travels/{{travel.tra_id}}{{userId}}">
+                        Detall
+                    </md-button>
                 </div>
             </div>
-
-            <div ng-if="travel.tra_persons_min || travel.tra_persons_max" class="col-md-3">
-                <div>Acompanyants</div>
-                <div ng-if="travel.tra_persons_min">
-                    <span>Mínim:</span>&nbsp;{{travel.tra_persons_min}}
-                </div>
-                <div ng-if="travel.tra_persons_max">
-                    <span>Màxim:</span>&nbsp;{{travel.tra_persons_max}}
-                </div>
-            </div>
-
-            <div class="pull-right">
-                <md-button ng-href="http://travel.trabel.me/#/travels/{{travel.tra_id}}{{userId}}">Detall</md-button>
-            </div>
-        </div>
+        </span>
     </md-card-title-text>
 </md-card-title>
