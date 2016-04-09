@@ -16,6 +16,7 @@
     "bootstrap": "~3.3.6",
     "lodash": "~4.9.0",
     "angular-ui-router": "~0.2.18",
-    "angular-material": "~1.0.7"
+    "angular-material": "~1.0.7",
+    "restangular": "~1.5.2"
   }
 }
