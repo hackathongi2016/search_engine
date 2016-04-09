@@ -49,12 +49,19 @@ angular.module('searchEngineApp')
     }
 
     Travel.getList = function(query){
-        if(!query || query.length == 0){
+        if(_.isEmpty(query)){
             query = "*";
+        } else {
+            query = "*" +query + "*";
         }
-        var query_solr = Travel.prototype.attributes.map(function(attr){
-            return attr+ "=" + query;
-        }).join(",");
+        var fields = [
+            'tra_origin',
+            'tra_destination',
+            'tra_description'];
+        
+        var query_solr = "select?indent=on&q=" + fields.map(function(attr){
+            return attr+ ":" + query;
+        }).join(" OR ");
         
         return Restangular.one("travels").one("search").all(query_solr).getList().then(function(data){
             return data.map(function(travel){
