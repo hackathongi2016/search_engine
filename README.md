@@ -4,7 +4,7 @@
 - **solr**: Custom Solr configuration
 
 ~~~
-# For run solr
+# For run solr (-f is from 'foreground' and optional)
 $ <solr path> start -f -s <absolute path to repo>/solr/
 # example: ./solr-6.0.0/bin/solr start -f -s /Volumes/Data/Workspace/hackathon2016/search_engine/solr/
 ~~~
