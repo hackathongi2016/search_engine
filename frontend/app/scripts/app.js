@@ -20,7 +20,7 @@ angular
 
         // http://search.trabel.me:5000/travels/search/tokio
         RestangularProvider.setBaseUrl('http://search.trabel.me:5000');
-        
+
         //RestangularProvider.setJsonp(true);
         RestangularProvider.setDefaultRequestParams('Access-Control-Allow-Origin', '*');
 
@@ -31,6 +31,11 @@ angular
                 resolve : {
                     travelsList : function (Travel) {
                         return Travel.getList();
+                    },
+                    joinedList : function(Travel, $location, $rootScope){
+                        var userId = _.get($location.search(), 'user_id');
+                        $rootScope.userId = userId ? '?user_id=' + parseInt(userId) : '';
+                        return userId ? Travel.getUserList(parseInt(userId)) : [];
                     }
                 },
                 url     : '/travels?param1',

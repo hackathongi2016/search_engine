@@ -8,7 +8,7 @@
  * Controller of the searchEngineApp
  */
 angular.module('searchEngineApp')
-    .controller('ResultsMapCtrl', function ($scope, NgMap) {
+    .controller('ResultsMapCtrl', function ($rootScope, $scope, NgMap) {
 
         var me = this;
 
@@ -16,17 +16,24 @@ angular.module('searchEngineApp')
             return moment(travel.tra_planning_limit).diff(moment(),'d');
         };
 
-        me.dynMarkers = [];
-        NgMap.getMap().then(function (map) {
-            var bounds = new google.maps.LatLngBounds();
-            for (var k in map.customMarkers) {
-                var cm = map.customMarkers[k];
-                me.dynMarkers.push(cm);
-                bounds.extend(cm.getPosition());
-            }
+        //.$watchCollection('travelsList', refreshCalendar, true);
 
-            me.markerClusterer = new MarkerClusterer(map, me.dynMarkers, {});
-            map.setCenter(bounds.getCenter());
-            map.fitBounds(bounds);
-        });
+        var refreshCalendar = function(){
+            console.log('refresh');
+            me.dynMarkers = [];
+            NgMap.getMap().then(function (map) {
+                var bounds = new google.maps.LatLngBounds();
+                for (var k in map.customMarkers) {
+                    var cm = map.customMarkers[k];
+                    me.dynMarkers.push(cm);
+                    bounds.extend(cm.getPosition());
+                }
+
+                me.markerClusterer = new MarkerClusterer(map, me.dynMarkers, {});
+                map.setCenter(bounds.getCenter());
+                map.fitBounds(bounds);
+            });
+        };
+
+        refreshCalendar();
     });

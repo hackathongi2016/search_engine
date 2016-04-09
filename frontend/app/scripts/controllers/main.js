@@ -9,10 +9,8 @@
  */
 angular.module('searchEngineApp')
     .controller('MainCtrl', function ($rootScope, $scope, $window, $q, $log, Travel, $location, travelsList) {
-    
-    this.travelsList = travelsList;
-    var userId = _.get($location.search(), 'user_id');
-    $rootScope.userId = userId ? '?user_id=' + parseInt(userId) : '';
+
+        $rootScope.travelsList = travelsList;
 
     var self = this;
     $scope.ctrl = self;
@@ -24,7 +22,7 @@ angular.module('searchEngineApp')
     self.selectedItemChange = selectedItemChange;
     self.searchTextChange   = searchTextChange;
     self.newState = newState;
-    
+
     function newState(state) {
       alert("Sorry! You'll need to create a Constituion for " + state + " first!");
     }
@@ -37,6 +35,7 @@ angular.module('searchEngineApp')
      */
     function querySearch(query) {
         return Travel.getList(query).then(function(travels){
+            $rootScope.travelsList = travels;
             return travels;
         });
     }
@@ -63,5 +62,5 @@ angular.module('searchEngineApp')
         return (state.value.indexOf(lowercaseQuery) === 0);
       };
     }
-    
+
   });

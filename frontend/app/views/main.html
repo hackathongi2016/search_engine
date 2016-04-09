@@ -2,22 +2,22 @@
     <form ng-submit="$event.preventDefault()">
       <md-autocomplete
           ng-disabled="ctrl.isDisabled"
-          md-no-cache="ctrl.noCache"
+          md-no-cache="true"
           md-selected-item="ctrl.selectedItem"
           md-search-text-change="ctrl.searchTextChange(ctrl.searchText)"
           md-search-text="ctrl.searchText"
           md-selected-item-change="ctrl.selectedItemChange(item)"
           md-items="item in ctrl.querySearch(ctrl.searchText)"
           md-item-text="item.tra_destination"
-          md-min-length="3"
+
           placeholder="A on vols viatjar?">
         <md-item-template>
-            <travel-search-item item="item" highlight="ctrl.searchText"></travel-search-item>          
+            <travel-search-item item="item" highlight="ctrl.searchText"></travel-search-item>
         </md-item-template>
         <md-not-found>
           No s'han trobat coincidencies per "{{ctrl.searchText}}".
         </md-not-found>
       </md-autocomplete>
-      <br/>     
+      <br/>
     </form>
   </md-content>

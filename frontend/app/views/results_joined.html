@@ -1,7 +1,7 @@
 <div ng-controller="ResultsListCtrl">
     <md-content class="md-padding" layout-xs="column" layout="row">
         <div flex-xs flex-gt-xs="100" layout="column">
-            <md-card ng-repeat="travel in travelsList | orderBy : 'tra_planning_limit'">
+            <md-card ng-repeat="travel in joinedList | orderBy : 'tra_planning_limit'">
                 <travel-results-list></travel-results-list>
             </md-card>
         </div>

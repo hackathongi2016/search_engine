@@ -10,5 +10,17 @@
                 <div ng-include="'views/results_map.html'"></div>
             </md-content>
         </md-tab>
+
+        <md-tab ng-if="userId" label="Propis">
+            <md-content class="md-padding">
+                <div ng-include="'views/results_user.html'"></div>
+            </md-content>
+        </md-tab>
+
+        <md-tab ng-if="userId" label="Participo">
+            <md-content class="md-padding">
+                <div ng-include="'views/results_joined.html'"></div>
+            </md-content>
+        </md-tab>
     </md-tabs>
 </md-content>
