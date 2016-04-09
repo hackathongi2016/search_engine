@@ -30,6 +30,10 @@
 -->
 
 <schema name="example" version="1.6">
+
+  <field name="tra_destination" type="string" indexed="true" stored="true" required="true" multiValued="false" />
+
+
   <!-- attribute "name" is the name of this schema and is only used for display purposes.
        version="x.y" is Solr's version number for the schema syntax and
        semantics.  It should not normally be changed by applications.
@@ -115,7 +119,7 @@
  <!-- Field to use to determine and enforce document uniqueness.
       Unless this field is marked with required="false", it will be a required field
    -->
- <uniqueKey>id</uniqueKey>
+   <uniqueKey>id</uniqueKey>
 
     <!-- boolean type: "true" or "false" -->
     <fieldType name="boolean" class="solr.BoolField" sortMissingLast="true"/>
@@ -162,22 +166,6 @@
     <!-- A Trie based date field for faster date range queries and date faceting. -->
     <fieldType name="tdate" class="solr.TrieDateField" docValues="true" precisionStep="6" positionIncrementGap="0"/>
 
-
-    <!--Binary data type. The data should be sent/retrieved in as Base64 encoded Strings -->
-    <fieldType name="binary" class="solr.BinaryField"/>
-
-    <!-- The "RandomSortField" is not used to store or search any
-         data.  You can declare fields of this type it in your schema
-         to generate pseudo-random orderings of your docs for sorting
-         or function purposes.  The ordering is generated based on the field
-         name and the version of the index. As long as the index version
-         remains unchanged, and the same field name is reused,
-         the ordering of the docs will be consistent.
-         If you want different psuedo-random orderings of documents,
-         for the same version of the index, use a dynamicField and
-         change the field name in the request.
-     -->
-    <fieldType name="random" class="solr.RandomSortField" indexed="true" />
 
     <!-- solr.TextField allows the specification of custom text analyzers
          specified as a tokenizer and a list of token filters. Different
@@ -246,7 +234,7 @@
                 words="lang/stopwords_en.txt"
                 />
         <filter class="solr.LowerCaseFilterFactory"/>
-  <filter class="solr.EnglishPossessiveFilterFactory"/>
+        <filter class="solr.EnglishPossessiveFilterFactory"/>
         <filter class="solr.KeywordMarkerFilterFactory" protected="protwords.txt"/>
   <!-- Optionally you may want to use this less aggressive stemmer instead of PorterStemFilterFactory:
         <filter class="solr.EnglishMinimalStemFilterFactory"/>
@@ -261,7 +249,7 @@
                 words="lang/stopwords_en.txt"
                 />
         <filter class="solr.LowerCaseFilterFactory"/>
-  <filter class="solr.EnglishPossessiveFilterFactory"/>
+        <filter class="solr.EnglishPossessiveFilterFactory"/>
         <filter class="solr.KeywordMarkerFilterFactory" protected="protwords.txt"/>
   <!-- Optionally you may want to use this less aggressive stemmer instead of PorterStemFilterFactory:
         <filter class="solr.EnglishMinimalStemFilterFactory"/>

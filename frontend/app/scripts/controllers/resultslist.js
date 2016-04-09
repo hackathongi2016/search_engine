@@ -8,10 +8,6 @@
  * Controller of the searchEngineApp
  */
 angular.module('searchEngineApp')
-    .controller('ResultsListCtrl', function ($scope) {
-        $scope.urls = {
-            new    : '/travels/new?user_id=1',
-            detail : '/travels/1?user_id=1',
-            login  : '/login'
-        };
+    .controller('ResultsListCtrl', function ($scope, $location) {
+        $scope.userId = parseInt(_.get($location.search(), 'user_id'));
     });

@@ -8,12 +8,12 @@
  * Controller of the searchEngineApp
  */
 angular.module('searchEngineApp')
-  .controller('MainCtrl', function ($scope, $timeout, $q, $log) {
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+  .controller('MainCtrl', function ($scope, $timeout, $q, $log, $location, travelsList) {
+
+
+	this.travelsList = travelsList;
+        console.log($location);
+        /*
     
     var self = this;
     $scope.ctrl = self;

@@ -1,5 +1,20 @@
 <div ng-controller="ResultsListCtrl">
-    <md-button ng-href="{{urls.new}}">Crear</md-button>
-    <md-button ng-href="{{urls.detail}}">Detall</md-button>
-    <md-button ng-href="{{urls.login}}">Login</md-button>
+    <div class="row" ng-repeat="travel in SearchResultsCtrl.travelsList | orderBy : 'tra_planning_limit'">
+        <div class="col-md-4">
+            <span>Origen: </span>
+            {{travel.tra_origin}}
+        </div>
+
+        <div class="col-md-4">
+            <span>Destí: </span>
+            {{travel.tra_destination}}
+        </div>
+
+        <div class="col-md-4">
+            {{travel.tra_planning_limit}}
+        </div>
+
+        <md-button ng-href="http://travel.trabel.me/#/travels/{{travel.tra_id}}?user_id={{userId}}">Detall</md-button>
+        <br/>
+    </div>
 </div>

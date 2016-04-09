@@ -15,7 +15,7 @@ angular
     ])
     .config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
 
-        $urlRouterProvider.otherwise('/');
+        $urlRouterProvider.otherwise('/travels');
 
         $stateProvider
             .state('main', {
@@ -32,7 +32,7 @@ angular
                                 tra_date           : '2016-05-20',
                                 tra_lat            : 2.234,
                                 tra_long           : 1.123,
-                                tra_planning_limit : '2016-05-05',
+                                tra_planning_limit : '2016-05-04',
                                 tra_persons_min    : 2,
                                 tra_persons_max    : 4,
                                 tra_description    : 'descripció lyon a girona',
@@ -45,7 +45,7 @@ angular
                                 tra_num_days       : 10,
                                 tra_budget_min     : 150.23,
                                 tra_budget_max     : 200.50,
-                                tra_date           : '2016-05-20',
+                                tra_date           : '2016-05-25    ',
                                 tra_lat            : 2.234,
                                 tra_long           : 1.123,
                                 tra_planning_limit : '2016-05-05',
@@ -61,10 +61,10 @@ angular
                                 tra_num_days       : 15,
                                 tra_budget_min     : 150.23,
                                 tra_budget_max     : 200.50,
-                                tra_date           : '2016-05-20',
+                                tra_date           : '2016-05-18',
                                 tra_lat            : 2.234,
                                 tra_long           : 1.123,
-                                tra_planning_limit : '2016-05-05',
+                                tra_planning_limit : '2016-05-03',
                                 tra_persons_min    : 2,
                                 tra_persons_max    : 4,
                                 tra_description    : 'descripció roma a parís',
@@ -73,17 +73,17 @@ angular
                         ];
                     }
                 },
-                url     : '/',
+                url     : '/travels?param1',
 
                 views : {
                     'search'  : {
                         templateUrl  : 'views/main.html',
-                        controller   : 'MainCtrl',
-                        controllerAs : 'Mai nCtrl'
+                        controller   : 'MainCtrl'
                     },
                     'results' : {
                         templateUrl : 'views/search_results.html',
-                        controller  : 'SearchResultsCtrl'
+                        controller  : 'SearchResultsCtrl',
+                        controllerAs : 'SearchResultsCtrl'
                     }
                 }
             });
