@@ -34,7 +34,6 @@ angular
                     }
                 },
                 url     : '/travels?param1',
-
                 views : {
                     'search'  : {
                         templateUrl  : 'views/main.html',
