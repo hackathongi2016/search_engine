@@ -40,4 +40,4 @@ api.add_resource(TravelsUser, '/travels/user/<int:user_id>')
 api.add_resource(Travels, '/travels/search/<string:text>')
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0')
