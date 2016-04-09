@@ -37,8 +37,25 @@ class Travels(Resource):
             except Exception, e:
                 print e
 
+
+class TravelsAll(Resource):
+    db = None
+    conn = None
+
+    def __init__(self):
+        self.db = Db_mysql()
+        self.conn = self.db.connect()
+
+    def get(self):
+        try:
+            search = self.db.search_all(self.conn)
+            return search
+        except Exception, e:
+            print e
+
 api.add_resource(TravelsUser, '/travels/user/<int:user_id>')
 api.add_resource(Travels, '/travels/search/<string:text>')
+api.add_resource(TravelsAll, '/travels/search/')
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', debug=True)
