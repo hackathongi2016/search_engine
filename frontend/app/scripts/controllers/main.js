@@ -8,10 +8,6 @@
  * Controller of the searchEngineApp
  */
 angular.module('searchEngineApp')
-  .controller('MainCtrl', function () {
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+  .controller('MainCtrl', function (travelsList) {
+      this.travelsList = travelsList;
   });

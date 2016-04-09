@@ -1,2 +1,19 @@
-<div ng-if="true" ng-include="'views/results_list.html'"></div>
-<div ng-if="true" ng-include="'views/results_map.html'"></div>
+<md-content>
+    <md-tabs md-dynamic-height md-border-bottom>
+        <md-tab label="Llistat">
+            <md-content class="md-padding">
+                <div ng-include="'views/results_list.html'"></div>
+            </md-content>
+        </md-tab>
+        <md-tab label="Mapa">
+            <md-content class="md-padding">
+                <div ng-include="'views/results_map.html'"></div>
+            </md-content>
+        </md-tab>
+    </md-tabs>
+</md-content>
+
+<div>
+    <md-button ng-href="http://travel.trabel.me/travels/new?user_id=1">Crear</md-button>
+    <md-button href="http://auth.travel.me">Login</md-button>
+</div>
