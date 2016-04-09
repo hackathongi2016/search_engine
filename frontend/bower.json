@@ -1,0 +1,19 @@
+{
+  "name": "search_engine",
+  "version": "0.0.0",
+  "homepage": "https://github.com/hackathongi2016/search_engine",
+  "authors": [],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.5.3",
+    "bootstrap": "~3.3.6",
+    "lodash": "~4.9.0"
+  }
+}
