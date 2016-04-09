@@ -8,8 +8,8 @@ ActiveRecord::Base.establish_connection(
   :adapter => "mysql2",
   :host => "localhost",
   :database => "viatgemjunts", #viatgemjunts
-  username: 'walter', #root
-  password: 'walter' #hackaton
+  username: 'root', #root
+  password: 'hackaton' #hackaton
 )
 
 puts '== Configuring tables...'
