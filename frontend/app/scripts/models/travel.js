@@ -48,8 +48,13 @@ angular.module('searchEngineApp')
         }
     }
     
-    Travel.getList = function(){
-        //return Restangular.all("travels")
+    Travel.getList = function(query){
+        /*return Restangular.one("travels").one("search").all(query).getList().then(function(data){
+            return data.map(function(travel){
+                return new Travel(travel);
+            });
+        });*/
+        
         var tmpData = [
             {
                 tra_id             : 1,

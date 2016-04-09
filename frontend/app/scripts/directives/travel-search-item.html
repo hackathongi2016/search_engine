@@ -1,5 +1,11 @@
 <div>
-    <span md-highlight-text="highlight" md-highlight-flags="^i">
+    <b><span class="text-uppercase" md-highlight-text="highlight" md-highlight-flags="^i">
         {{item.tra_destination}}
+    </span></b>
+    <span class="small" md-highlight-text="highlight" md-highlight-flags="^i">
+        {{item.tra_description}}
+    </span>
+    <span class="small" md-highlight-text="highlight" md-highlight-flags="^i" ng-if="item.tra_persons_min">
+        (Mín. {{item.tra_persons_min}} persones)
     </span>
 </div>
