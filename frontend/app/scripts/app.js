@@ -14,8 +14,9 @@ angular
         'ngMaterial',
         'restangular'
     ])
-    .config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
+    .config(['$stateProvider', '$urlRouterProvider', 'RestangularProvider', function ($stateProvider, $urlRouterProvider, RestangularProvider) {
 
+        RestangularProvider.setBaseUrl('http://demo3532506.mockable.io/');
         $urlRouterProvider.otherwise('/travels');
 
         $stateProvider
