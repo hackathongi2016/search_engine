@@ -11,6 +11,7 @@
 angular
     .module('searchEngineApp', [
         'ui.router',
+        'ui.bootstrap',
         'ngMaterial',
         'restangular',
         'ngMap'

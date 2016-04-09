@@ -24,8 +24,21 @@ angular.module('searchEngineApp')
             [52.975556, 7.596811], [52.975556, 7.596811],
             [52.975556, 7.596811], [52.975556, 20.596811]];
 
+        /*$scope.positions = me.positions = [
+            {
+                lat  : 54.779951,
+                lon  : 9.334164,
+                name : 'test'
+            },
+            {
+                lat : 54.209613,
+                lon : 9.991539,
+                name : 'test2'
+            }
+        ];*/
+
         me.dynMarkers = [];
-        NgMap.getMap().then(function(map) {
+        NgMap.getMap().then(function (map) {
             var bounds = new google.maps.LatLngBounds();
             for (var k in map.customMarkers) {
                 var cm = map.customMarkers[k];

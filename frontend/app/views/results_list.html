@@ -1,8 +1,9 @@
 <div ng-controller="ResultsListCtrl">
-
-    <div class="list-group">
-        <div class="list-group-item" ng-repeat="travel in SearchResultsCtrl.travelsList | orderBy : 'tra_planning_limit'">
-            <travel-results-list></travel-results-list>
+    <md-content class="md-padding" layout-xs="column" layout="row">
+        <div flex-xs flex-gt-xs="100" layout="column">
+            <md-card ng-repeat="travel in SearchResultsCtrl.travelsList | orderBy : 'tra_planning_limit'">
+                <travel-results-list></travel-results-list>
+            </md-card>
         </div>
-    </div>
+    </md-content>
 </div>
