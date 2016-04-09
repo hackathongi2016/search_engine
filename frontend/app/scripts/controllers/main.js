@@ -45,7 +45,7 @@ angular.module('searchEngineApp')
     function selectedItemChange(item) {
         $log.info('Item changed to ' + JSON.stringify(item));
         // change the path
-        $window.location.href  = ('http://travel.trabel.me/#/travels/'+ item.tra_id + $scope.userId);
+        $window.location.href  = ('http://travel.trabel.me/travels/'+ item.tra_id + $scope.userId);
     }
     /**
      * Build `states` list of key/value pairs
