@@ -49,13 +49,13 @@ angular.module('searchEngineApp')
     }
     
     Travel.getList = function(query){
-        /*return Restangular.one("travels").one("search").all(query).getList().then(function(data){
+        return Restangular.one("travels").one("search").all(query).getList().then(function(data){
             return data.map(function(travel){
                 return new Travel(travel);
             });
-        });*/
+        });
         
-        var tmpData = [
+        /*var tmpData = [
             {
                 tra_id             : 1,
                 tra_origin         : 'Lyon',
@@ -110,7 +110,7 @@ angular.module('searchEngineApp')
         });
         var deferred = $q.defer();
         $timeout(function () { deferred.resolve( tmpTravels ); }, Math.random() * 1000, false);
-        return deferred.promise;
+        return deferred.promise;*/
     }
       
     return Travel;
