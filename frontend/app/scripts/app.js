@@ -20,7 +20,8 @@ angular
 
         // http://search.trabel.me:5000/travels/search/tokio
         RestangularProvider.setBaseUrl('http://search.trabel.me:5000');
-        RestangularProvider.setJsonp(true);
+        
+        //RestangularProvider.setJsonp(true);
         //RestangularProvider.setDefaultRequestParams('jsonp', {callback: 'JSON_CALLBACK'});
 
         $urlRouterProvider.otherwise('/travels');
@@ -33,7 +34,6 @@ angular
                     }
                 },
                 url     : '/travels?param1',
-
                 views : {
                     'search'  : {
                         templateUrl  : 'views/main.html',
