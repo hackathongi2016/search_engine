@@ -31,7 +31,7 @@
 
 <schema name="example" version="1.6">
   <field name="rut_name" type="text_general" indexed="true" stored="true"/>
-  
+
   <!-- attribute "name" is the name of this schema and is only used for display purposes.
        version="x.y" is Solr's version number for the schema syntax and
        semantics.  It should not normally be changed by applications.

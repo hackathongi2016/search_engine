@@ -19,13 +19,27 @@ class Route < ActiveRecord::Base
   self.table_name = 'Route'
 end
 
+puts "===== Travels ====="
+puts "==================="
 puts '== Configuring Solr connection...'
-s_travels = RSolr.connect :url => 'http://localhost:8983/solr/travels'
+solr = RSolr.connect :url => 'http://localhost:8983/solr/travels'
 
 puts '== Deleting all...'
-s_travels.delete_by_query '*:*'
-s_travels.commit
+solr.delete_by_query '*:*'
+solr.commit
 
-#puts '== Synchronizing travels...'
-#Travel.find_each do |travel|
-#end
+puts '== Synchronizing...'
+Travel.find_each do |travel|
+  solr.add :id => travel.id,
+    :tra_description => travel.tra_description,
+    :tra_destination => travel.tra_destination,
+    :tra_origin => travel.tra_origin
+  print '.'
+end
+solr.commit
+puts ""
+
+
+puts "===== Routes ====="
+puts "=================="
+puts "WIP..."
